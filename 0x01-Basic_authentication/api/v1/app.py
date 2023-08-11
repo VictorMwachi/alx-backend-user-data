@@ -40,6 +40,7 @@ def forbidden(error) -> str:
 
 @before_request
 def request_handler() -> str:
+    """authenticates user"""
     if auth:
         excluded_paths = [
             '/api/v1/status/',
