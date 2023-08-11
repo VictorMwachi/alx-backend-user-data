@@ -20,7 +20,9 @@ class Auth:
 
     def authorization_header(self, request=None) -> str:
         """return none"""
-        return None
+        if request is None:
+            return None
+        return request.get('Authorization', None)
 
     def current_user(self, request=None) -> TypeVar('User'):
         """return none"""
