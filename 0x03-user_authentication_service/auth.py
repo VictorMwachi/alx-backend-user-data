@@ -18,4 +18,6 @@ class Auth:
 
     def register_user(self, email: str, password: str) -> User:
         """add new user to db"""
+        try:
+            self.find_user()
 
