@@ -34,11 +34,8 @@ class DB:
 
     def add_user(self, email, hashed_password) -> User:
         """returns user object"""
-        self.email = email
-        self.hashed_password = hashed_password
         try:
-            new_user = User(
-                    email=self.email, self.hashed_password=hashed_password)
+            new_user = User(email=email, hashed_password=hashed_password)
             self.__session.add(new_user)
             self.__session.commit()
         except Exception:
