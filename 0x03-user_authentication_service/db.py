@@ -36,11 +36,11 @@ class DB:
         """returns user object"""
         try:
             new_user = User(email=email, hashed_password=hashed_password)
-            self.__session.add(new_user)
-            self.__session.commit()
+            self._session.add(new_user)
+            self._session.commit()
         except Exception:
-            self.__session.rollback()
-            self.__session = None
+            self._session.rollback()
+            self._session = None
         return new_user
 
     def find_user_by(self, **kwargs) -> User:
